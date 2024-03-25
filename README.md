@@ -2,7 +2,6 @@
 Convert a video into cartoon style.
 
 
-
 ## 사용자 입력
 
 #### [TAB키] 모드 변환
@@ -10,7 +9,6 @@ Convert a video into cartoon style.
 - 모드 2: 엣지 검출 뷰 (Edge Detection)
 
 #### [＋/－키] 스케일 확대 / 축소 (10%p)
-
 
 
 ## 실행 결과
@@ -25,3 +23,10 @@ Convert a video into cartoon style.
 
 
 ### 동영상
+
+<동영상 1: 만화스러운 변환 성공>
+
+
+<동영상 2: 만화스러운 변환 실패>
+
+한계 논의

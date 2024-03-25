@@ -31,13 +31,17 @@ class ToonMaker:
 if __name__ == '__main__':
 	video = cv.VideoCapture('res/20240325_202847.mp4')
 	if not video.isOpened():
-		print("Read error: Failed to take a camera!")
+		print("Read error: Failed to take a video!")
 
 	fps = video.get(cv.CAP_PROP_FPS)
 	wait_msec = int(1 / fps * 1000)
 
+	video_writer = cv.VideoWriter()
+	video_file = 'res/output.mp4'
+	codec = cv.VideoWriter_fourcc(*"mp4v")
+
 	img_orig = cv.imread('res/ikea_spruttig.jpg')
-	img_scale = 0.1
+	img_scale = 0.25
 
 	view_edge = False
 
@@ -58,6 +62,18 @@ if __name__ == '__main__':
 			img_smooth = cv.bilateralFilter(img, d=9, sigmaColor=300, sigmaSpace=300)
 			img_toon = ToonMaker.image_to_cartoon(img)
 			merged = np.hstack((img, img_smooth, img_toon))
+
+		if not video_writer.isOpened():
+			h, w, *_ = merged.shape
+			frame_size = (w, h)
+
+			# Open the video file
+			opened = video_writer.open(video_file, codec, fps, frame_size)
+			if not opened:
+				print("Write error: Failed to open a video!")
+				break
+
+		video_writer.write(merged)
 		cv.imshow('Cartoon Making', merged)
 
 		# Process the key event
@@ -72,4 +88,5 @@ if __name__ == '__main__':
 			view_edge = not view_edge
 
 	video.release()
+	video_writer.release()
 	cv.destroyAllWindows()
