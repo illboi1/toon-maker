@@ -25,8 +25,9 @@ Convert a video into cartoon style.
 ### 동영상
 
 <동영상 1: 만화스러운 변환 성공>
-
+https://github.com/illboi1/toon-maker/assets/88954347/01123f6c-33b7-4894-b865-7170de0ce943
 
 <동영상 2: 만화스러운 변환 실패>
+https://github.com/illboi1/toon-maker/assets/88954347/7878a823-3d82-476d-9f5b-aa72376b0262
 
-한계 논의
+한계 논의: 사물의 배경이 복잡할 때 엣지가 부각되면서 만화풍의 변환이 자연스러운 편 / 단순한 사물이나 배경에서는 엣지가 덜 부각되면서 만화스러운 표현이 적게 나타남
