@@ -26,6 +26,7 @@ Convert a video into cartoon style.
 
 <동영상 1: 만화스러운 변환 성공>
 https://github.com/illboi1/toon-maker/assets/88954347/01123f6c-33b7-4894-b865-7170de0ce943
+https://github.com/illboi1/toon-maker/issues/1#issue-2205964647
 
 <동영상 2: 만화스러운 변환 실패>
 https://github.com/illboi1/toon-maker/assets/88954347/7878a823-3d82-476d-9f5b-aa72376b0262
