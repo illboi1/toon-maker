@@ -17,10 +17,10 @@ Convert a video into cartoon style.
 
 ### 사진
 
-<모드 2>
+<모드 2: 흑백|Canny엣지|엣지마스크>
 <img width="1167" alt="toon_edges" src="https://github.com/illboi1/toon-maker/assets/88954347/8222f69d-dd87-4e9b-a9ee-8a3c81e729b0">
 
-<모드 1>
+<모드 1: 원본|스무딩|카툰>
 <img width="1167" alt="toon" src="https://github.com/illboi1/toon-maker/assets/88954347/bf0fe7d9-d83b-4cfb-9977-f77e8b5faeb5">
 
 
