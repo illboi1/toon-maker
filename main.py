@@ -39,6 +39,7 @@ if __name__ == '__main__':
 	video_writer = cv.VideoWriter()
 	video_file = 'res/output.mp4'
 	codec = cv.VideoWriter_fourcc(*"mp4v")
+	recording = False
 
 	img_orig = cv.imread('res/ikea_spruttig.jpg')
 	img_scale = 0.25
@@ -57,11 +58,10 @@ if __name__ == '__main__':
 		if view_edge: # Show edge-detection process
 			edges = ToonMaker.edges_with_canny(img)
 			edge_mask = ToonMaker.mask_by_threshold(edges)
-			merged = np.hstack((cv.cvtColor(img, cv.COLOR_BGR2GRAY), edges, edge_mask))
+			merged = np.hstack((edges, edge_mask))
 		else: # Show toon-conversion process
-			img_smooth = cv.bilateralFilter(img, d=9, sigmaColor=300, sigmaSpace=300)
 			img_toon = ToonMaker.image_to_cartoon(img)
-			merged = np.hstack((img, img_smooth, img_toon))
+			merged = np.hstack((img, img_toon))
 
 		if not video_writer.isOpened():
 			h, w, *_ = merged.shape
@@ -73,7 +73,8 @@ if __name__ == '__main__':
 				print("Write error: Failed to open a video!")
 				break
 
-		video_writer.write(merged)
+		if recording:
+			video_writer.write(merged)
 		cv.imshow('Cartoon Making', merged)
 
 		# Process the key event
@@ -86,6 +87,8 @@ if __name__ == '__main__':
 			img_scale = max(img_scale - 0.05, 0.1)
 		elif key == ord('\t'):
 			view_edge = not view_edge
+		elif key == ord(' '):
+			recording = not recording
 
 	video.release()
 	video_writer.release()
